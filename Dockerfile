@@ -27,7 +27,7 @@ RUN apt-get install -y libjson-perl libcrypt-rijndael-perl libmime-perl libdiges
 RUN cpan List::MoreUtils Time::HiRes
 
 COPY start.sh ./start.sh
-RUN [“chmod”, “+x”, "./start.sh”]
+RUN ["chmod", "+x", "./start.sh"]
 
 EXPOSE 8083
 EXPOSE 7072
