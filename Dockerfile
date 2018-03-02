@@ -11,7 +11,7 @@ WORKDIR /opt/fhem
 RUN apt-get install -y mysql-client libdbd-mysql libdbd-mysql-perl
 
 # MQTT
-RUN cpan -i Net::MQTT::Simple Module::Pluggable
+RUN cpan -i Net::MQTT::Simple Net::MQTT:Constants Module::Pluggable
 
 # FRITZBOX
 RUN apt-get install -y libjson-perl libwww-perl libsoap-lite-perl libjson-xs-perl
