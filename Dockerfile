@@ -7,7 +7,6 @@ RUN apt-get update && apt-get -qy install fhem
 
 WORKDIR /opt/fhem
 
-CMD ["./start.sh"]
 # DbLog
 RUN apt-get install -y mysql-client libdbd-mysql libdbd-mysql-perl
 
@@ -27,15 +26,8 @@ RUN apt-get install -y libxml-parser-lite-perl
 RUN apt-get install -y libjson-perl libcrypt-rijndael-perl libmime-perl libdigest-perl-md5-perl libdatetime-perl
 RUN cpan List::MoreUtils Time::HiRes
 
-# UWZ
-RUN cpan XML::Simple
-
-# own modules
-RUN cpan DateTime::Event::Recurrence Encoding::FixLatin DateTime::Format::MySQL AnyEvent::DBI::MySQL Date::Calc Encode::DoubleEncodedUTF8
-
-WORKDIR /opt/fhem
-
 COPY start.sh ./start.sh
+RUN [“chmod”, “+x”, "./start.sh”]
 
 EXPOSE 8083
 EXPOSE 7072
