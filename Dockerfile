@@ -1,9 +1,9 @@
-FROM arm32v7/debian
+FROM arm32v7/debian:jessie
 
 # Base
 RUN apt-get update && apt-get -qy install apt-utils apt-transport-https wget build-essential
 RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add - && echo "deb http://debian.fhem.de/nightly/ /" > /etc/apt/sources.list.d/fhem.list
-RUN apt-get update && apt-get -qy install fhem 
+RUN apt-get update && apt-get -y install fhem 
 
 WORKDIR /opt/fhem
 
