@@ -29,6 +29,8 @@ RUN cpan List::MoreUtils Time::HiRes
 COPY start.sh ./start.sh
 RUN ["chmod", "+x", "./start.sh"]
 
+RUN echo "attr global nofork 1" >> fhem.cfg
+
 EXPOSE 8083
 EXPOSE 7072
 
